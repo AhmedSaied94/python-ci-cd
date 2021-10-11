@@ -4,7 +4,7 @@ on:
 jobs:
  test:
   name: Run test
-  runs-on: arch-latest
+  runs-on: ubuntu-latest
   steps:
   - uses: actions/checkout@master
   - uses: mr-smithers-excellent/docker-build-push@v5
