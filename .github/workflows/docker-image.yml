@@ -1,0 +1,18 @@
+on:
+        pull_request:
+                branches: [ main ]
+jobs:
+ test:
+  name: Run test
+  runs-on: manjaro-latest
+  steps:
+  - uses: actions/checkout@master
+  - uses: mr-smithers-excellent/docker-build-push@v5
+    name: Build & push Docker image
+    with:
+      image: ahmedsaied94/hellopython
+      tags: v1, latest
+      registry: docker.io
+      dockerfile: Dockerfile
+      username: ${{ secrets.DOCKER_USER }}
+      password: ${{ secrets.DOCKER_PASS }}
